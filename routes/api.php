@@ -17,10 +17,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/getProduto/{id}', 'MinhaController@getProduto');
+/*ProdutoController*/
+Route::get('/resource/{id}', 'ProdutoController@showResource');
+Route::apiResource('produtos', 'ProdutoController');
 
-Route::post('/criarProduto', 'MinhaController@criarProduto');
+/*ParceiroController*/
+Route::get('/resource/{id}', 'ParceiroController@showResource');
+Route::apiResource('parceiros', 'ParceiroController');
 
-Route::put('/atualizarProduto/{id}', 'MinhaController@atualizarProduto');
-
-Route::delete('/deletarProduto/{id}', 'MinhaController@deletarProduto');
+/*ServicoController*/
+Route::get('/resource/{id}', 'ServicoController@showResource');
+Route::apiResource('servicos', 'ServicoController');
